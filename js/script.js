@@ -22,42 +22,40 @@ function getAvaterSrc(event) {
 function deleteProfile(e) {
 	e.parentNode.parentNode.parentNode.parentNode.style.display = "none";
 }
-/*
-function editProfile(e) {
-	const parent = e.parentNode.parentNode.parentNode.parentNode;
-	console.log(parent);
-	const currentName = parent.querySelector("h2").innerHTML;
-	const currentTitle = parent.querySelector("h3").innerHTML;
-	const currentDescription = parent.querySelector("p").innerHTML;
-	const currentImg = parent.querySelector("img").src;
 
-	console.log(parent, currentImg);
+// function editProfile(e) {
+// 	const parent = e.parentNode.parentNode.parentNode.parentNode;
+// 	console.log(parent);
+// 	const currentName = parent.querySelector("h2").innerHTML;
+// 	const currentTitle = parent.querySelector("h3").innerHTML;
+// 	const currentDescription = parent.querySelector("p").innerHTML;
+// 	const currentImg = parent.querySelector("img").src;
 
-	inputName.value = currentName;
-	inputTitle.value = currentTitle;
-	inputDescription.value = currentDescription;
-	inputAvater.src = URL.createObjectURL(currentImg);
-}
-*/
+// 	const file = new File();
+// 	console.log(parent, file);
+
+// 	inputName.value = currentName;
+// 	inputTitle.value = currentTitle;
+// 	inputDescription.value = currentDescription;
+// 	inputAvater.value = currentImg;
+// }
+
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 
-	if (
-		inputName.value &&
-		inputTitle.value &&
-		inputDescription.value &&
-		inputAvater.value
-	) {
+	if (inputName.value && inputTitle.value && inputDescription.value) {
 		userProfile.innerHTML += `
                 <div class="profile-info"> 
                     <div class="avater">
-                        <img id="profileImg" src="${avaterUrl}" alt="avater" />
+                        <img id="profileImg" src="${
+													inputAvater.value ? avaterUrl : "../img/avater.svg"
+												}" alt="avater" />
                     </div>
                     <div class="info">
                         <div class="profileName-flexbox">
                             <h2>${inputName.value}</h2>
                             <div class="edit-delete-icon"> 
-                                <!-- <i class="fas fa-user-edit" onclick="editProfile(this)"></i> -->
+                               <!-- <i class="fas fa-user-edit" onclick="editProfile(this)"></i> -->
                                 <i class="fas fa-user-times" onclick="deleteProfile(this)"></i>
                             </div>
                             
