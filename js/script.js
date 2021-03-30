@@ -43,7 +43,12 @@ function deleteProfile(e) {
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 
-	if (inputName.value && inputTitle.value && inputDescription.value) {
+	if (
+		inputName.value &&
+		inputTitle.value &&
+		inputDescription.value &&
+		inputAvater.value
+	) {
 		userProfile.innerHTML += `
                 <div class="profile-info"> 
                     <div class="avater">
